@@ -1,0 +1,8 @@
+[package]
+name = "trait"
+version = "0.1.0"
+authors = ["zuowenjian <zuowenjian@outlook.com>"]
+
+[dependencies]
+log = "0.4.1"
+pretty_env_logger = "0.2"
