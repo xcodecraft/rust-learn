@@ -12,18 +12,21 @@ use plat_a::* ;
 
 
 
-fn fetch_orders(api : Box<ExchangeAPI>)
+fn fetch_orders(apis : Vec<Box<ExchangeAPI>>)
 {
-    let order_r= api.fetch_orders();
-    debug!("order: {:?}",order_r) ;
+    for api in apis 
+    {
+        let order_r= api.fetch_orders();
+        debug!("order: {:?}",order_r) ;
+    }
 }
 
 fn main() {
 
+    let mut apis = Vec::new() ;
+    apis.push(PlatA::new()) ;
+    apis.push(PlatB::new()) ;
     pretty_env_logger::init();
-    let a =  PlatA::new();
-    let b =  PlatB::new();
-    fetch_orders(a) ;
-    fetch_orders(b) ;
+    fetch_orders(apis) ;
 
 }
