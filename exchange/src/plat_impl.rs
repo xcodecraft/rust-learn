@@ -29,14 +29,14 @@ pub trait Plat{}
 
 impl <T> Fetch for T  where T: Plat 
 {
-    fn local_fetch_data(&self, path: &String) -> String 
+    fn local_fetch_data(&self, _path: &String) -> String 
     {
-        String::from("")
+        String::from("data from local")
 
     }
-    fn remot_fetch_data(&self, path: &String) -> String 
+    fn remot_fetch_data(&self, _path: &String) -> String 
     {
-        String::from("")
+        String::from("data from remote")
 
     }
 
@@ -46,7 +46,9 @@ impl <T> Conv for T
 {
     fn to_orders(&self,str : &String) -> OrderVecR 
     {
-        Err(Error::Unimpl)
+        debug!("to_orders from  {}", str) ;
+        Ok(vec![Order{ price : 0.10 , vol : 0.10}])
+        //Err(Error::Unimpl)
 
     }
 

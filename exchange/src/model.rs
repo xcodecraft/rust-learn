@@ -3,7 +3,10 @@ use std::result::Result ;
 
 #[derive(Debug)]
 pub struct Order
-{}
+{
+    pub price : f64,
+    pub vol   : f64,
+}
 #[derive(Debug)]
 pub enum Error
 {
